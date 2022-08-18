@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Man</title>
+	  <meta charset="utf-8">
+ 
+    <meta name="description" content="The text here describes what the webpage
+ is about. It's what will show up in search results for search engines like
+ Google under the title of the webpage. It's important that this is relevant
+ to your page and well-written!" >
+    <link rel="stylesheet" href="my_css_file.css">
+    <script src="my_javascript_library.js"></script>
+    <script src="tamrawe-ali-assigment5.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.row{
+			line-height: 0px;
+		}
+	
+	.wall{
+		background-color: yellow;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+	}
+	.sushi{
+		background-color: black;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+		background-image: url('ninjaman/sushi.png');
+background-size:contain;0
+	}
+	.blank{
+		background-color: yellow;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+	}
+
+	#ninjaman{
+		background-color:black;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+		background-image: url(ninjaman/ninja.gif);
+		background-size: contain;
+		position: absolute;
+		left: 40px;
+		top: 40px;
+	}
+
+	</style>
+</head>
+<body>
+	<div id='world'></div>
+		
+	<div id='ninjaman'></div>
+	
+		
+</body>
+<script type="text/javascript">
+	
+  	
+   var world = [
+   [1,1,1,1,1],
+   [1,0,2,2,1],
+   [1,2,1,2,1],
+   [1,2,2,2,1],
+   [1,2,2,2,1],
+   [1,1,1,1,1],
+   [1,0,2,2,1],
+   [1,2,1,2,1],
+   [1,2,2,2,1],
+   [1,1,1,1,1]
+   ];
+
+
+   var worldDict = {
+   	0:'blank',
+   	1:'wall',
+   	2:'sushi'
+   }
+   var row=0; 
+    
+   function drawWorld(){
+   	output = "";
+   	for( row=0; row < world.length; row++)
+  	{
+   		 output=output+"<div class='row'>"
+   		for (var i = world[row].length - 1; i >= 0; i--) {
+   		output=output+"<div class='"+worldDict[world[row][i]]+"'></div>";
+   		}
+   		output=output+"</div>"
+   	}
+   	console.log(output);
+const h2 = document.getElementById("world");
+let html = output
+h2.insertAdjacentHTML("afterbegin", html);
+   };
+   drawWorld();
+</script>
+</html>
